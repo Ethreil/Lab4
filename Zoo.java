@@ -59,7 +59,7 @@ public class Zoo
      * animals array, you will need to create a new array with a larger size, copy over the data in the "animals"
      * array, and update the reference of the "animals" array to the new array.
      */
-    private void expandZoo()
+    void expandZoo()
     {
         // Create the new array
         Animal[] newArray = new Animal[capacity*2];

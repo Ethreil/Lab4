@@ -49,13 +49,13 @@ public class Equipment
         String[] tokens = strg.split(",");
 
         String[] idinfo = tokens[0].split("/");
-        this.name = idinfo[0];
-        this.count = Integer.parseInt(idinfo[1]);
-        this.totalWeight = Double.parseDouble(tokens[1]);
-        this.totalPrice = Double.parseDouble(tokens[2]);
-        this.description = tokens[3];
+        this.name = tokens[0];
+        this.count = Integer.parseInt(tokens[1]);
+        this.totalWeight = Double.parseDouble(tokens[2]);
+        this.totalPrice = Double.parseDouble(tokens[3]);
+        this.description = tokens[4];
     }
-
+    
     /**
      * toString override. Gives all information about the Equipment.
      *
@@ -123,6 +123,24 @@ public class Equipment
         Equipment otherEq = (Equipment)other;
 
         // Check that all fields match (name, count, totalWeight, totalPrice, and description):
+        if (otherEq.getName().equalsIgnoreCase(this.getName()))
+        {
+        	if (otherEq.getCount() == this.getCount()) 
+        	{
+        		if (otherEq.getTotalWeight() == this.getTotalWeight())
+        		{
+        			if (otherEq.getTotalPrice() ==  this.getTotalPrice())
+        			{
+        				if (otherEq.getDescription().equalsIgnoreCase(this.getDescription()))
+        				{
+        					return true;
+        				} 
+        			}
+        		}
+        	}
+        }
+        
+        return false;
       
         // TODO: finish method
     }
